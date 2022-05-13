@@ -17,10 +17,24 @@ class ConfigurationSeeder extends Seeder
     {
         //
         DB::table('configurations')->insert([
-            'congregation_id' => 1,
-            'day_midweek' => 3,
-            'day_weekend' => 6,
-            'visibly' => 1
+            [
+                'congregation_id' => 1,
+                'day_midweek' => 3,
+                'day_weekend' => 6,
+                'visibly' => 1
+            ],
+            [
+                'congregation_id' => 2,
+                'day_midweek' => 3,
+                'day_weekend' => 6,
+                'visibly' => 1
+            ],
+            [
+                'congregation_id' => 3,
+                'day_midweek' => 4,
+                'day_weekend' => 1,
+                'visibly' => 1
+            ],
         ]);
     }
 }

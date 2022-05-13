@@ -16,8 +16,18 @@ class CongregationSeeder extends Seeder
     {
         //
         DB::table('congregations')->insert([
-            'id' => 1,
-            'name' => 'Sul de Janaúba - MG',
+            [
+                'id' => 1,
+                'name' => 'Sul de Janaúba - MG',
+            ],
+            [
+                'id' => 2,
+                'name' => 'Norte de Janaúba - MG',
+            ],
+            [
+                'id' => 3,
+                'name' => 'Rio Novo de Janaúba - MG',
+            ],
         ]);
     }
 }

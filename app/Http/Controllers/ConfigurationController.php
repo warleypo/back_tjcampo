@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Configuration;
+use App\Models\Scopes\FilterCongregationScope;
+use Illuminate\Database\Eloquent\Builder;
 
 class ConfigurationController extends Controller
 {
@@ -13,11 +16,14 @@ class ConfigurationController extends Controller
     }
 
     public function index() {
-        return 'index now!';
+        if (auth()->check() && auth()->user()->permission == 7) {
+            return Configuration::withoutGlobalScopes([FilterCongregationScope::class])->get()->toJson();
+        }
+        return Configuration::all()->toJson();
     }
 
     public function show($id) {
-        return 'Oi mundo!';
+        return response()->json(Configuration::find($id));
     }
 
     public function edit($id) {
