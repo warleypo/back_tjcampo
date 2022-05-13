@@ -17,10 +17,15 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->unsignedBigInteger('congregation_id');
+            $table->tinyInteger('permission')->default(1);
+            // 1 - view, 2 - edit, 3 - update, 4 - remove, 7 - super
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('congregation_id')->references('id')->on('congregations')->onDelete('restrict');
         });
     }
 

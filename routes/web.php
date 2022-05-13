@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('laravel');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return 'autorizado!';
+});
+// ->middleware(['auth'])->name('dashboard');
+
+Route::resource('congregations', App\Http\Controllers\CongregationController::class);
 
 require __DIR__.'/auth.php';
