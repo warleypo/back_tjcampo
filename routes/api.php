@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CongregationController;
 use App\Http\Controllers\ConfigurationController;
+use App\Http\Controllers\CleaningController;
+use App\Http\Controllers\FieldController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +47,7 @@ Route::middleware('auth:api')->group(function($router) {
         'index', 'show'
     ]);
     Route::resource('/configurations', ConfigurationController::class);
-    // ->only([
-    //     'index', 'show'
-    // ]);
+    Route::resource('/cleanings', CleaningController::class);
+    Route::resource('/fields', FieldController::class);
+    Route::resource('/carts', CartController::class);
 });

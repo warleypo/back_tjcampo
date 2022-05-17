@@ -14,10 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $this->call([
-            CongregationSeeder::class,
-            ConfigurationSeeder::class,
-            UserSeeder::class,
-        ]);
+        if (env('APP_ENV') == 'local') {
+            $this->call([
+                CongregationSeeder::class,
+                ConfigurationSeeder::class,
+                UserSeeder::class,
+                GroupSeeder::class,
+                ManagerSeeder::class,
+                FieldSeeder::class,
+                CartSeeder::class,
+                DesignationSeeder::class,
+            ]);
+        } else {
+            $this->call([
+                CongregationSeeder::class,
+                ConfigurationSeeder::class,
+                UserSeeder::class,
+            ]);
+        }
     }
 }
